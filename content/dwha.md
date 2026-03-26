@@ -344,7 +344,9 @@ C)You can think of medallion as a layered implementation pattern inside the ware
 [Table of Contents](#Data-Warehousing-Architecture)
 
 ## Why is that Data Architect actually monitor and enforce compliance data standards?
-The primary idea of keeping the standards high on compliance for data standards is because it will help to reduce the data redundancy and helps the team to have a quality data. As this information is actually carried out or used throughout the organization.
+- The primary reason Data Architects enforce data standards is to ensure data consistency, quality, and reliability across the organization. Standardization helps reduce redundancy and prevents discrepancies in data coming from multiple sources.
+-For example, if date formats or key columns are inconsistent across systems, it can break data pipelines or lead to incorrect transformations. Similarly, duplicate or inconsistent data can result in inaccurate analytics and poor business decisions.
+-By enforcing data standards, Data Architects ensure that data is clean, consistent, and compliant, making it reliable for downstream systems like reporting and analytics.
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
@@ -354,29 +356,57 @@ There are three different kinds of data models that are available and they are a
 + Logical
 + Physical
 
-Conceptual data model:
+Conceptual data model :
 + As the name itself implies that this data model depicts the high-level design of the available physical data.
++ The entities present at higher level.
 
-Logical data model:
+Logical data model (ERD) :
 + Within the logical model, the entity names, entity relationships, attributes, primary keys and foreign keys will show up.
 
 Physical data model:
-+ Based on this data model, the view will give out more information and showcases how the model is implemented in the database. All the primary keys, foreign keys, tables names and column names will be showing up.
++ Based on this data model, the view will give out more information and showcases how the model is implemented in the database. All the primary keys, foreign keys, tables names,column names and data types will be showing up.
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
 ## Differentiate between dimension and attribute?
-In short, dimensions are nothing but which represents qualitative data. For example data like a plan, product, class are all considered as dimensions.
-The attribute is nothing but a subset of a dimension. Within a dimension table, we will have attributes. The attributes can be textual or descriptive. For example, product name and product category are nothing but an attribute of product dimensions.
++ In short, dimensions represents qualitative data. For example data like a plan, product, class are all considered as dimensions.
++ The attribute is a subset of a dimension. Within a dimension table, we will have attributes. The attributes can be textual or descriptive. For example, product name and product category are nothing but an attribute of product dimensions.
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
 ## Differentiate between Oltp and Olap?
-OLTP stands for Online Transaction Process System
-OLTP is known for maintaining transactional level data of the organization and generally, they are highly normalized. If it is OLTP route then it is going to be a star schema design.
-OLAP stands for Online Analytical process system.
-OLAP is known for a lot of analysis and fulfills reporting purposes. It is de-normalized form.
-If it is an OLAP route then it is going to be a snowflake schema design.
+🔹 Online Transactional Processing 
+ + OLTP systems handle day-to-day transactional operations of an organization.
+- Data is **highly normalized** to reduce redundancy and maintain integrity.
+- **Optimized for:**
+  - Write-heavy operations  
+  - Fast inserts/updates  
+  - Multi-row transactions (ACID compliance)
+- **Typically contains entities (tables) like:**
+  - Employee  
+  - Orders  
+  - Payments  
+- **Common tools:**
+  - MySQL  
+  - PostgreSQL  
+  - Microsoft SQL Server  
+🔹 OLAP (Online Analytical Processing)
++ OLAP systems are used for analytics, reporting, and decision-making.
+- Data is **denormalized** (e.g., star/snowflake schema) for faster querying.
+- **Optimized for:**
+  - Read-heavy workloads  
+  - Complex queries and aggregations  
+- Data is loaded via **ETL/ELT pipelines** into:
+  - Data warehouses  
+  - Data marts  
+- **Typically contains:**
+  - **Fact tables** (metrics like sales, attendance hours)  
+  - **Dimension tables** (employee, date, department)  
+- **Common tools:**
+  - Snowflake  
+  - Google BigQuery  
+  - Amazon Redshift  
+  
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
