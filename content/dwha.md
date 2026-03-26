@@ -396,7 +396,8 @@ Physical data model:
 - Data is **denormalized** (e.g., star/snowflake schema) for faster querying.
 - **Optimized for:**
   - Read-heavy workloads  
-  - Complex queries and aggregations  
+  - Complex queries and aggregations
+  - complaince standards and quality done at ETL layer. 
 - Data is loaded via **ETL/ELT pipelines** into:
   - Data warehouses  
   - Data marts  
