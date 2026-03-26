@@ -292,12 +292,14 @@
 The main difference between view and materialized view is as follows:
 + View:
   + Data representation is provided by view where the data is accessed from its table.
-  + View has a logical structure which does not occupy space
-  + All the changes are affected in corresponding tables.
+  + A dynamic query result set which does not store data ,but the definition of the view .
+  + All the changes are affected in corresponding tables ,if it is single table or simple join .
+  + 'with Schemabinding' enabled, the schema definition with two part naming - schema.table is needed and a dependecy is created ,which helps integrity and prevents schema changes.
 + Materialized View:
-  + Within materialized view, pre-calculated data is available
-  + The materialized view has a physical structure which does occupy space
-  + All the changes are not reflected in the corresponding tables.
+  + Within materialized view, pre-calculated data is available and it refreshes view for every base table it dependes on.
+  + That is for every DML opertion [UPDATE || INSERT || DELETE || INSERT]
+  + The materialized view has a physical structure which does occupy space AND can have UNIQUE & NONCLUSTERED INDEX.
+  + ALWAYS insync with base table changes [since the changes are done in the same transaction.]
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
