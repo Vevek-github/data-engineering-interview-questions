@@ -339,7 +339,7 @@ C)You can think of medallion as a layered implementation pattern inside the ware
   + UNIQUE
   + PRIMARY KEY (Entity integrity)
   + FOREIGN KEY (Referential)
-- [constraints_OLTP_vs_OLAP](Constraints_OLTP_vs_OLAP)
+- [constraints_OLTP_vs_OLAP](Constraints_OLTP_vs_OLAP.md)
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
