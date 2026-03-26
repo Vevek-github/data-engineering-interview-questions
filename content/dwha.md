@@ -299,24 +299,36 @@ The main difference between view and materialized view is as follows:
   + Within materialized view, pre-calculated data is available and it refreshes view for every base table it dependes on.
   + That is for every DML opertion [UPDATE || INSERT || DELETE || INSERT]
   + The materialized view has a physical structure which does occupy space AND can have UNIQUE & NONCLUSTERED INDEX.
-  + ALWAYS insync with base table changes [since the changes are done in the same transaction.]
+  + ALWAYS in-sync with base table changes [since the changes are done in the same transaction.]
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
 ## What is Junk Dimension?
-A junk dimension is nothing but a dimension where a certain type of data is stored which is not appropriate to store in the schema. The nature of the junk dimension is usually a Boolean has flag values.
-A single dimension is formed by a group of small dimensions got together. This can be considered as junk dimension.
+A junk dimension is an OLAP dimension, which we use to de-clutter the fact tables of low-cardinality columns usually boolean flags and miscellanous columns ,can be mapped by single key .
+
++ Example
++ In FACT_ORDERS,we can move the FLAGS like is_active[bool], is_cancelled[bool], order_type[3~4 types].
++ We can use junk dimension,which can be used to map by a single key and helps in query performance indirectly by reducing the number of columns alligning with STAR schema. 
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
 ## What is Data Warehouse architecture?
-The data warehouse architecture is a three-tier architecture.
+A)The data warehouse architecture is a three-tier architecture.
 The following is the three-tier architecture:
 + Bottom Tier
 + Middle Tier
 + Upper Tier
 
 It is nothing but a repository of integrating data which is extracted from different data sources.
+
+B) Data Warehousing Arhchitecture is a multi, usually 3 tier pipeline ,which gets from mutliple heterogenous sources like OLTP which is called BOTTOM/raw data layer , into STAGING/ETL layer where we cleanse and transform the data ,into the MIDDLE layer ,seggregated into datamarts || centralized dataware house and expose only the relevant data into TOP layer,which can be used in BI reporting. 
++ Tools like Snowflake , Amazon Redshift and Google BIGQuery are built around for data warehousing.
+
+C)You can think of medallion as a layered implementation pattern inside the warehouse/lakehouse:
++ Bronze is similar to the bottom/raw/staging layer
++ Silver is similar to the transformation and curated warehouse layer
++ Gold is similar to the data mart / BI-ready top layer.
+
 
 [Table of Contents](#Data-Warehousing-Architecture)
 
