@@ -295,7 +295,7 @@ The main difference between view and materialized view is as follows:
   + A dynamic query result set which does not store data ,but the definition of the view .
   + All the changes are affected in corresponding tables ,if it is single table or simple join .
   + 'with Schemabinding' enabled, the schema definition with two part naming - schema.table is needed and a dependecy is created ,which helps integrity and prevents schema changes.
-+ Materialized View:
++ Materialized View  (INDEXED VIEW in SQL SERVER):
   + Within materialized view, pre-calculated data is available and it refreshes view for every base table it dependes on.
   + That is for every DML opertion [UPDATE || INSERT || DELETE || INSERT]
   + The materialized view has a physical structure which does occupy space AND can have UNIQUE & NONCLUSTERED INDEX.
