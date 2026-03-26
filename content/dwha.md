@@ -390,6 +390,7 @@ Physical data model:
   - MySQL  
   - PostgreSQL  
   - Microsoft SQL Server  
+
 🔹 OLAP (Online Analytical Processing)
 + OLAP systems are used for analytics, reporting, and decision-making.
 - Data is **denormalized** (e.g., star/snowflake schema) for faster querying.
